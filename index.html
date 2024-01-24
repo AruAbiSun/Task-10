@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown and Independence Day</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: aqua;
+    }
+
+    #countdown {
+      font-size: 2em;
+      text-align: center;
+      color:blue;
+    }
+  </style>
+</head>
+<body>
+
+<div id="countdown"></div>
+
+<script>
+function startCountdown() {
+  let counter = 10;
+
+  function updateCountdown() {
+    document.getElementById('countdown').innerText = counter;
+    counter--;
+
+    if (counter >= 0) {
+      setTimeout(updateCountdown, 1000);
+    } else {
+      // Countdown has reached 0, display "Happy Independence Day"
+      document.getElementById('countdown').innerText = "Happy Independence Day!";
+    }
+  }
+
+  // Start the countdown
+  updateCountdown();
+}
+
+// Start the countdown when the page loads
+window.onload = startCountdown;
+</script>
+
+</body>
+</html>
